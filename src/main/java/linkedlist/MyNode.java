@@ -1,6 +1,9 @@
 package linkedlist;
 
 public class MyNode <T>implements INode<T>{
+    /*
+    * Implementation of interface
+    * */
     public  INode<T> next;
     public T key;
 

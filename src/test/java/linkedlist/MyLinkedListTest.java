@@ -4,8 +4,11 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class MyLinkedListTest {
+    /*
+    * Test class to run junit test
+    * */
     @Test
-    public void given3NumbersWhereLinkedListIsSearchedAndAddressIsMatchedForTheSearchedElement(){
+    public void given3NumbersWhereLinkedListIsSearchedAndDeletedShouldPassLinkedListTest(){
         MyNode<Integer>  myFirstNode = new MyNode(56);
         MyNode<Integer> mySecondNode = new MyNode(30);
         MyNode<Integer>  myThirdNode = new MyNode(70);
@@ -14,8 +17,18 @@ public class MyLinkedListTest {
         myLinkedList.append(myFirstNode);
         myLinkedList.append(mySecondNode);
         myLinkedList.append(myThirdNode);
-        INode node = myLinkedList.searchAndInsert(mySecondNode,myForthNode);
+        myLinkedList.searchAndInsert(mySecondNode,myForthNode);
+
         myLinkedList.printNodes();
-        Assert.assertEquals(node , myForthNode);
+        myLinkedList.delete(myForthNode);
+        System.out.print("LinkedList after deleting element 40 is : ");
+        myLinkedList.printNodes();
+        System.out.print("Size of linkedList is: ");
+        myLinkedList.size(myThirdNode);
+
+        Boolean result =  myLinkedList.head.equals(myFirstNode) &&
+                myLinkedList.head.getNext().equals(mySecondNode)
+                && myLinkedList.tail.equals(myThirdNode);
+        Assert.assertTrue(result);
     }
 }
