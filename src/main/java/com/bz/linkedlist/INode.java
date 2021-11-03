@@ -1,4 +1,4 @@
-package linkedlist;
+package com.bz.linkedlist;
 
 public interface INode<T> {
     T getKey();
