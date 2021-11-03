@@ -1,4 +1,4 @@
-package com.bz.linkedlist;
+package linkedlist;
 
 public class MyNode <T>implements INode<T>{
     public  INode<T> next;
