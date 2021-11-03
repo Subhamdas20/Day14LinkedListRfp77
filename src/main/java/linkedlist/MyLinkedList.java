@@ -1,6 +1,6 @@
 package linkedlist;
 
-public class MyLinkedList  {
+public class MyLinkedList<T>  {
     public INode tail;
     public INode head;
 
@@ -43,13 +43,25 @@ public class MyLinkedList  {
     }
     public <T>INode popLast(){
         INode tempNode = this.head;
-//        INode temp = this.tail;
         while (!tempNode.getNext().equals(tail)){
             tempNode = tempNode.getNext();
         }
         this.tail = tempNode;
         tempNode = tempNode.getNext();
         return tempNode;
+    }
+    public  INode findNode(MyNode myNode){
+        INode tempNode = this.head;
+        INode temp = null;
+        while (!tempNode.getNext().equals(tail)){
+
+            if(tempNode.getNext()==myNode){
+                System.out.println("Found node with key : "+myNode.getKey());
+                temp=myNode;
+            }
+            return temp;
+        }
+        return temp;
     }
     public void printNodes(){
         StringBuffer myNodes = new StringBuffer("My Nodes : ");
@@ -59,6 +71,7 @@ public class MyLinkedList  {
             if(!tempNode.equals(tail)) myNodes.append("->");
             tempNode = tempNode.getNext();
         }
+        myNodes.append(tempNode.getKey());
         System.out.println(myNodes);
     }
 

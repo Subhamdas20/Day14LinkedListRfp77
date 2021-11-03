@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class MyLinkedListTest {
     @Test
-    public void given3NumbersWhereLastNodeIsDeletedShouldPassTheResultTestCase(){
+    public void given3NumbersWhereLinkedListIsSearchedAndAddressIsMatchedForTheSearchedElement(){
         MyNode<Integer>  myFirstNode = new MyNode(56);
         MyNode<Integer> mySecondNode = new MyNode(30);
         MyNode<Integer>  myThirdNode = new MyNode(70);
@@ -13,10 +13,8 @@ public class MyLinkedListTest {
         myLinkedList.append(myFirstNode);
         myLinkedList.append(mySecondNode);
         myLinkedList.append(myThirdNode);
-        myLinkedList.popLast();
         myLinkedList.printNodes();
-        boolean result = myLinkedList.head.equals(myFirstNode)
-                && myLinkedList.tail.equals(mySecondNode);
-        Assert.assertTrue(result);
+        INode node = myLinkedList.findNode(mySecondNode);
+        Assert.assertEquals(node , mySecondNode);
     }
 }
